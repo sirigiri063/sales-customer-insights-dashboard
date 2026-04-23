@@ -42,6 +42,7 @@ This project analyzes e-commerce sales data using Power BI to uncover key insigh
 Due to file size limitations, files are hosted externally:
 
 👉 Dashboard (.pbix): https://drive.google.com/drive/folders/1nHvFR19KTqadxst6PEAoCTfadGqvYtnC?usp=drive_link
+
 👉 Dataset: https://drive.google.com/drive/folders/1Ceq3Vza5ybtLzRNUdE-U84WLTTHYNFUm?usp=drive_link
 
 ---

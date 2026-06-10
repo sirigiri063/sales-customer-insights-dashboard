@@ -1,157 +1,204 @@
-# Sales & Customer Insights Dashboard
+# 📊 Sales & Customer Insights Dashboard
 
-> End-to-end e-commerce analytics — from raw SQL queries to an interactive Power BI dashboard that surfaces revenue trends, customer behavior, and product performance.
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
 
-![Dashboard Preview](assets/dashboard-preview.png)
-
----
-
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Business Objectives](#business-objectives)
-3. [Key Insights](#key-insights)
-4. [Tech Stack](#tech-stack)
-5. [Project Structure](#project-structure)
-6. [Getting Started](#getting-started)
-7. [Data Sources](#data-sources)
-8. [Dashboard Access](#dashboard-access)
-9. [Documentation](#documentation)
-10. [License](#license)
+> An end-to-end business intelligence project analyzing e-commerce sales data to uncover revenue trends, customer behavior, and top-performing products — built with Excel, SQL, and Power BI.
 
 ---
 
-## Project Overview
+## 📌 Table of Contents
 
-This project delivers a fully interactive Power BI dashboard built on an e-commerce dataset. The analysis pipeline covers data extraction with SQL, light transformation in Excel, and visual storytelling in Power BI — enabling business stakeholders to explore sales performance and customer trends at a glance.
-
-**Scope:** Historical e-commerce transactions  
-**Audience:** Business analysts, product managers, and decision-makers  
-**Deliverable:** Interactive `.pbix` dashboard + supporting SQL scripts and business documents
+- [Overview](#-overview)
+- [Business Objective](#-business-objective)
+- [Key Insights](#-key-insights)
+- [Dashboard Preview](#-dashboard-preview)
+- [Project Structure](#-project-structure)
+- [Tools & Technologies](#-tools--technologies)
+- [Dashboard Features](#-dashboard-features)
+- [Data Pipeline](#-data-pipeline)
+- [SQL Analysis](#-sql-analysis)
+- [Dataset & Dashboard Access](#-dataset--dashboard-access)
+- [How to Run](#-how-to-run)
+- [Author](#-author)
 
 ---
 
-## Business Objectives
+## 🧭 Overview
+
+This project simulates a real-world e-commerce analytics scenario, working through the full data analytics workflow — from raw data cleaning in Excel, business logic analysis in SQL, to final storytelling in an interactive Power BI dashboard.
+
+The project covers three core areas:
+- **Revenue Analysis** — where is money coming from and how is it trending?
+- **Customer Behavior** — who are the top buyers and how do they shop?
+- **Product Performance** — which products and categories drive results?
+
+---
+
+## 🎯 Business Objective
 
 | # | Objective |
 |---|-----------|
-| 1 | Identify top-performing product categories and individual SKUs |
-| 2 | Segment customers by purchase frequency and lifetime value |
-| 3 | Track monthly revenue trends and detect seasonal patterns |
-| 4 | Surface actionable insights to guide inventory and marketing decisions |
+| 1 | Identify top-performing product categories and individual products |
+| 2 | Analyze customer purchasing patterns and high-value buyers |
+| 3 | Track monthly revenue trends and detect seasonality |
+| 4 | Support business decision-making with clear, actionable data insights |
 
 ---
 
-## Key Insights
+## 💡 Key Insights
 
-- **Category concentration** — A small number of product categories drive the majority of total revenue, pointing to high-leverage restocking priorities.
-- **Customer concentration** — Top-tier buyers account for a disproportionate share of spending, signalling an opportunity for loyalty or retention programs.
-- **Seasonal fluctuation** — Monthly revenue shows clear peaks and troughs, enabling smarter promotional calendar planning.
-
----
-
-## Tech Stack
-
-| Tool | Purpose |
-|------|---------|
-| **Power BI** | Interactive dashboard and data visualisation |
-| **SQL** | Data extraction, aggregation, and exploratory analysis |
-| **Excel** | Light data cleaning and staging |
+| # | Insight |
+|---|---------|
+| 1 | 🏆 A small number of product categories drive the majority of total revenue |
+| 2 | 👤 Customer spending is heavily concentrated among the top buyers |
+| 3 | 📅 Monthly revenue shows clear fluctuations indicating seasonal trends |
+| 4 | 📦 Top 5 products significantly outperform the rest of the catalog |
+| 5 | 🔻 Some products generate high sales volume but low or negative profit |
 
 ---
 
-## Project Structure
+## 📷 Dashboard Preview
+
+![Dashboard](Advanced_Sales_Customer_Insights.png)
+
+> *Interactive Power BI dashboard showing revenue trends, customer segmentation, product performance, and monthly sales patterns.*
+
+---
+
+## 📁 Project Structure
 
 ```
 sales-customer-insights-dashboard/
 │
-├── assets/                         # Screenshots and visual assets
-│   └── dashboard-preview.png       # Dashboard thumbnail (used in README)
+├── 📂 data/
+│   └── dataset.xlsx                          # Cleaned source data (Excel)
 │
-├── data/                           # Raw and processed data files
-│   ├── raw/                        # Original source files (do not modify)
-│   └── processed/                  # Cleaned/transformed outputs
+├── 📂 sql/
+│   └── sql_queries.sql                       # All SQL queries with comments
 │
-├── sql/                            # SQL analysis scripts
-│   ├── 01_revenue_by_category.sql  # Revenue breakdown by product category
-│   ├── 02_customer_segmentation.sql# RFM / spend-tier customer analysis
-│   ├── 03_monthly_trends.sql       # Month-over-month revenue trends
-│   └── 04_top_products.sql         # Top SKUs by revenue and volume
+├── 📂 reports/
+│   └── dashboard.pbix                        # Power BI dashboard file
 │
-├── dashboard/                      # Power BI files
-│   └── README.md                   # Link to external .pbix (Google Drive)
+├── 📂 docs/
+│   ├── BRD.docx                              # Business Requirements Document
+│   ├── FRD.docx                              # Functional Requirements Document
+│   └── NFRD.docx                             # Non-Functional Requirements Document
 │
-├── docs/                           # Business and technical documents
-│   ├── BRD.pdf                     # Business Requirements Document
-│   ├── FRD.pdf                     # Functional Requirements Document
-│   └── NFRD.pdf                    # Non-Functional Requirements Document
+├── 📂 assets/
+│   └── Advanced_Sales_Customer_Insights.png  # Dashboard preview image
 │
-└── README.md                       # You are here
+└── README.md                                 # You are here
 ```
 
 ---
 
-## Getting Started
+## 🛠 Tools & Technologies
 
-### Prerequisites
-
-- [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (free)
-- A SQL client (e.g. DBeaver, Azure Data Studio) to run the SQL scripts
-- Microsoft Excel 2016+ or Google Sheets for the staging files
-
-### Steps
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/sirigiri063/sales-customer-insights-dashboard.git
-   cd sales-customer-insights-dashboard
-   ```
-
-2. **Load the dataset**  
-   Download the dataset from the link in [Data Sources](#data-sources) and place the files in `data/raw/`.
-
-3. **Run the SQL scripts**  
-   Execute the scripts in `sql/` against your local database in numbered order (`01_` → `04_`). Each script is self-contained with a header comment explaining its purpose and expected output.
-
-4. **Open the dashboard**  
-   Download the `.pbix` file from the link in [Dashboard Access](#dashboard-access) and open it in Power BI Desktop. Update the data source connection to point to your local files.
+| Tool | Purpose |
+|------|---------|
+| **Microsoft Excel** | Data cleaning, formatting, and initial exploration |
+| **SQL (PostgreSQL syntax)** | Data querying, aggregations, and business logic |
+| **Power BI Desktop** | Interactive dashboard and data visualization |
 
 ---
 
-## Data Sources
+## 📊 Dashboard Features
 
-> Files are hosted externally due to GitHub's size limits.
+The Power BI dashboard includes:
 
-| Asset | Link |
-|-------|------|
-| Dataset (CSV / Excel) | [Google Drive →](https://drive.google.com/drive/folders/1Ceq3Vza5ybtLzRNUdE-U84WLTTHYNFUm?usp=drive_link) |
-
----
-
-## Dashboard Access
-
-| Asset | Link |
-|-------|------|
-| Power BI Dashboard (`.pbix`) | [Google Drive →](https://drive.google.com/drive/folders/1nHvFR19KTqadxst6PEAoCTfadGqvYtnC?usp=drive_link) |
+- **KPI Cards** — Total Revenue, Total Orders, Unique Customers at a glance
+- **Revenue by Category** — Bar chart comparing product category performance
+- **Top 5 Products by Sales** — Highlights highest revenue-generating items
+- **Monthly Revenue Trend** — Time-series line chart showing growth and seasonality
+- **Customer Spending Distribution** — Identifies high-value vs low-value buyers
+- **Profit vs Sales Scatter** — Spots high-revenue but low-margin products
 
 ---
 
-## Documentation
+## 🔄 Data Pipeline
 
-Full project documentation lives in the `docs/` folder:
-
-| Document | Description |
-|----------|-------------|
-| `BRD.pdf` | Business Requirements Document — scope, stakeholders, success criteria |
-| `FRD.pdf` | Functional Requirements Document — feature specs and data definitions |
-| `NFRD.pdf` | Non-Functional Requirements — performance, security, and maintainability |
+```
+Raw Dataset (Excel)
+      │
+      ▼
+Data Cleaning (Excel)
+  - Remove duplicates
+  - Handle nulls
+  - Standardize date formats
+  - Validate column types
+      │
+      ▼
+SQL Analysis (PostgreSQL)
+  - Revenue and profit aggregations
+  - Customer behavior analysis
+  - Product and category ranking
+  - Monthly trend queries
+      │
+      ▼
+Power BI Dashboard
+  - Import cleaned data
+  - Build calculated measures (DAX)
+  - Design visuals and layout
+  - Publish interactive report
+```
 
 ---
 
-## License
+## 🔍 SQL Analysis
 
-This project is for portfolio and educational purposes. Dataset is sourced from publicly available e-commerce data. Feel free to fork and adapt with attribution.
+All queries are in [`sql/sql_queries.sql`](sql/sql_queries.sql). Key analyses performed:
+
+- Total revenue, profit, and order count (summary KPIs)
+- Revenue breakdown by product category
+- Top 5 products by sales
+- Monthly revenue trend
+- Customer spending analysis and high-value buyer identification
+- Products with negative profit margins
+- High-value orders (Sales > $1,000)
 
 ---
 
-<p align="center">Built by <a href="https://github.com/sirigiri063">sirigiri063</a></p>
+## 📂 Dataset & Dashboard Access
+
+Due to file size limitations, the dashboard and dataset are hosted externally:
+
+👉 **Dashboard (.pbix):** [Google Drive Link](https://drive.google.com/drive/folders/1nHvFR19KTqadxst6PEAoCTfadGqvYtnC?usp=drive_link)
+
+👉 **Dataset:** [Google Drive Link](https://drive.google.com/drive/folders/1Ceq3Vza5ybtLzRNUdE-U84WLTTHYNFUm?usp=drive_link)
+
+---
+
+## ▶️ How to Run
+
+### Power BI Dashboard
+1. Download `dashboard.pbix` from the Google Drive link above
+2. Open with **Power BI Desktop** (free download at [powerbi.microsoft.com](https://powerbi.microsoft.com))
+3. If prompted, update the data source path to point to `data/dataset.xlsx`
+4. Click **Refresh** to reload the data
+
+### SQL Queries
+1. Import `data/dataset.xlsx` into your SQL database as a table named `sales_data`
+2. Open [`sql/sql_queries.sql`](sql/sql_queries.sql) in your SQL editor
+3. Run queries individually or as a batch
+
+---
+
+## 👤 Author
+
+**Sirigiri Malakonda Reddy**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=flat&logo=github)](https://github.com/sirigiri063)
+
+---
+
+## 📄 License
+
+This project uses publicly available e-commerce sales data for educational and portfolio purposes.
+
+---
+
+*Built as a portfolio project to demonstrate end-to-end data analytics skills.*
